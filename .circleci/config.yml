@@ -4,9 +4,9 @@ orbs:
   node: circleci/node@4.4.0
   
 executors:
-  default:
+  custom-node:
     docker:
-      - image: cimg/python:3.8
+      - image: circleci/node
 
 commands:
   generatelogs:
@@ -28,9 +28,7 @@ commands:
 
 jobs:
   orb-intro:
-    executor: 
-      docker:
-        - image: circleci/node@4.4.0
+    executor: custom-node
     steps:
       - run: echo "console.log('complete')" | node
       - generatelogs
