@@ -6,7 +6,7 @@ commands:
     parameters:
       path:
         type: string
-        default: "~/randomfolder"
+        default: "~/project"
     steps:
       - run: echo "Log file" > <<parameters.path>>/log.txt
   endMission:
@@ -20,7 +20,7 @@ commands:
 
 jobs:
   orb-intro:
-    executor: custom-node
+    executor: circleci/node
     steps:
       - run: echo "console.log('complete')" | node
       - generatelogs
