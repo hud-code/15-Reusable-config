@@ -8,6 +8,11 @@ executors:
     docker:
       - image: circleci/node
 
+parameters:
+  path:
+    type: string
+    default: "~/project"
+
 commands:
   generatelogs:
     description: "A command to generate a log file"
@@ -20,11 +25,11 @@ commands:
   end_mission:
     description: "Use the parameters of this command to exit this mission with a green build."
     parameters:
-      exitCode:
+      exitcode:
         type: integer
         default: 0
     steps:
-      - run: exit <<parameters.exitCode>>
+      - run: exit <<parameters.exitcode>>
 
 jobs:
   orb-intro:
