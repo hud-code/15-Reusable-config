@@ -23,7 +23,7 @@ commands:
 
 jobs:
   orb-intro:
-    executor: circleci/node
+    executor: custom-node
     steps:
       - run: echo "console.log('complete')" | node
       - generatelogs
