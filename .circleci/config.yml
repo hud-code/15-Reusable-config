@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  node: circleci/node@4.4.0
+
 commands:
   generatelogs:
     description: "A command to generate a log file"
