@@ -22,7 +22,7 @@ commands:
     parameters:
       exitCode:
         type: integer
-        default: 1
+        default: 0
     steps:
       - run: exit <<parameters.exitCode>>
 
@@ -31,7 +31,6 @@ jobs:
     executor: custom-node
     steps:
       - run: echo "console.log('complete')" | node
-      - run: mkdir randomfolder
       - generatelogs
       - run:
           name: Check for logs - DO NOT MODIFY
