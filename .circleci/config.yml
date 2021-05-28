@@ -28,7 +28,9 @@ commands:
 
 jobs:
   orb-intro:
-    executor: custom-node
+    executor: 
+      docker:
+        - image: circleci/node@4.4.0
     steps:
       - run: echo "console.log('complete')" | node
       - generatelogs
