@@ -14,7 +14,7 @@ commands:
     parameters:
       path:
         type: string
-        default: "~/project"
+        default: "~/randomfolder"
     steps:
       - run: echo "Log file" > <<parameters.path>>/log.txt
   end_mission:
@@ -31,6 +31,7 @@ jobs:
     executor: custom-node
     steps:
       - run: echo "console.log('complete')" | node
+      - run: mkdir randomfolder
       - generatelogs
       - run:
           name: Check for logs - DO NOT MODIFY
