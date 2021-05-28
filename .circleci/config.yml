@@ -8,11 +8,6 @@ executors:
     docker:
       - image: circleci/node
 
-parameters:
-  path:
-    type: string
-    default: "~/project"
-
 commands:
   generatelogs:
     description: "A command to generate a log file"
@@ -36,7 +31,8 @@ jobs:
     executor: custom-node
     steps:
       - run: echo "console.log('complete')" | node
-      - generatelogs
+      - generatelogs:
+        - path: "~/project"
       - run:
           name: Check for logs - DO NOT MODIFY
           command: |
